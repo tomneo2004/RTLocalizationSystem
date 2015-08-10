@@ -14,6 +14,8 @@
 		44A3C0951B78597500F600BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A3C0941B78597500F600BD /* Images.xcassets */; };
 		44A3C0981B78597500F600BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A3C0961B78597500F600BD /* LaunchScreen.xib */; };
 		44A3C0A41B78597500F600BD /* RTLocalizationSystemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3C0A31B78597500F600BD /* RTLocalizationSystemTests.m */; };
+		44A3C0AF1B785A5200F600BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44A3C0B11B785A5200F600BD /* Localizable.strings */; };
+		44A3C0BA1B785D5600F600BD /* RTLocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3C0B91B785D5600F600BD /* RTLocalizationSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		44A3C09D1B78597500F600BD /* RTLocalizationSystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTLocalizationSystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A3C0A21B78597500F600BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A3C0A31B78597500F600BD /* RTLocalizationSystemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTLocalizationSystemTests.m; sourceTree = "<group>"; };
+		44A3C0B21B785A5800F600BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		44A3C0B31B785BA400F600BD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		44A3C0B81B785D5600F600BD /* RTLocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLocalizationSystem.h; sourceTree = "<group>"; };
+		44A3C0B91B785D5600F600BD /* RTLocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLocalizationSystem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		44A3C0861B78597500F600BD /* RTLocalizationSystem */ = {
 			isa = PBXGroup;
 			children = (
+				44A3C0B41B785C4400F600BD /* RTLocalizationSystem */,
 				44A3C08B1B78597500F600BD /* AppDelegate.h */,
 				44A3C08C1B78597500F600BD /* AppDelegate.m */,
 				44A3C08E1B78597500F600BD /* ViewController.h */,
@@ -98,6 +105,7 @@
 			children = (
 				44A3C0881B78597500F600BD /* Info.plist */,
 				44A3C0891B78597500F600BD /* main.m */,
+				44A3C0B11B785A5200F600BD /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +125,15 @@
 				44A3C0A21B78597500F600BD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		44A3C0B41B785C4400F600BD /* RTLocalizationSystem */ = {
+			isa = PBXGroup;
+			children = (
+				44A3C0B81B785D5600F600BD /* RTLocalizationSystem.h */,
+				44A3C0B91B785D5600F600BD /* RTLocalizationSystem.m */,
+			);
+			name = RTLocalizationSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +199,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = 44A3C07B1B78597500F600BD;
 			productRefGroup = 44A3C0851B78597500F600BD /* Products */;
@@ -200,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A3C0931B78597500F600BD /* Main.storyboard in Resources */,
+				44A3C0AF1B785A5200F600BD /* Localizable.strings in Resources */,
 				44A3C0981B78597500F600BD /* LaunchScreen.xib in Resources */,
 				44A3C0951B78597500F600BD /* Images.xcassets in Resources */,
 			);
@@ -220,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A3C0901B78597500F600BD /* ViewController.m in Sources */,
+				44A3C0BA1B785D5600F600BD /* RTLocalizationSystem.m in Sources */,
 				44A3C08D1B78597500F600BD /* AppDelegate.m in Sources */,
 				44A3C08A1B78597500F600BD /* main.m in Sources */,
 			);
@@ -258,6 +278,15 @@
 				44A3C0971B78597500F600BD /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		44A3C0B11B785A5200F600BD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44A3C0B21B785A5800F600BD /* Base */,
+				44A3C0B31B785BA400F600BD /* zh-Hant */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
