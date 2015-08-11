@@ -22,7 +22,7 @@
  * Set system's language
  */
 #define RTSetLanguage(lang) \
-[[RTLocalizationSystem localizationSystem] setLanguage:(lang)]
+[[RTLocalizationSystem localizationSystem] setLanguage:(lang) withNotify:(YES)]
 
 /**
  * Get system's current language
@@ -36,6 +36,31 @@
 #define RTResetSystem \
 [[RTLocalizationSystem localizationSystem] resetSystem]
 
+/**
+ * Name of notification when system's language changed
+ */
+#define RTOnLanguageChanged \
+@"RTOnLanguageChanged"
+
+/**
+ * The key in UserInfo in notification for the language user changed to
+ * language changed notification
+ */
+#define RTNewLanguage \
+@"RTNewLang"
+
+/**
+ * The key in UserInfo in notification for the language user changed from
+ * language changed notification
+ */
+#define RTOldLanguage \
+@"RTOldLang"
+
+/**
+ * When you set a new language it will post notification,
+ * you can use NSNotificationCenter to observe it by give
+ * notification marco RTOnLanguageChanged
+ */
 @interface RTLocalizationSystem : NSObject
 
 /**
@@ -55,7 +80,7 @@
 /**
  * Set language
  */
-- (void)setLanguage:(NSString *)lang;
+- (void)setLanguage:(NSString *)lang withNotify:(BOOL)yesOrNo;
 
 /**
  * Get current language

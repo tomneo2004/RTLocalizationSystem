@@ -27,19 +27,25 @@ static NSString *_rtSettingFileName = @"RTLocalizationSystemSetting";
 static RTLocalizationSystem *_instance;
 static NSBundle *_currentBundle;
 
-#pragma mark - get instance
+#pragma mark - Get shared instance
 + (RTLocalizationSystem *)localizationSystem{
 
-    static dispatch_once_t onceToken;
+    /*GCD this has problem on freeze launch screen
+    dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
     
-        _instance = [[self alloc] init];
+        _instance = [[RTLocalizationSystem alloc] init];
     });
+     */
+    
+    if(_instance == nil)
+        _instance = [[RTLocalizationSystem alloc] init];
     
     return _instance;
 }
 
+#pragma mark - Init
 - (id)init{
     
     self = [super init];
@@ -48,6 +54,7 @@ static NSBundle *_currentBundle;
         
         //get main bundle
         _currentBundle = [NSBundle mainBundle];
+        
         
         NSString *settingFilePath = [self getSettingFilePath];
         
@@ -65,20 +72,24 @@ static NSBundle *_currentBundle;
         }
         
         //set language
-        [self setLanguage:[_setting objectForKey:@"language"]];
+        [self setLanguage:[_setting objectForKey:@"language"] withNotify:NO];
     }
     
     return self;
 }
 
+#pragma mark - Get localized string
 - (NSString *)localizeStringForKey:(NSString *)key value:(NSString *)comment{
     
     return [_currentBundle localizedStringForKey:key value:comment table:nil];
 }
 
-- (void)setLanguage:(NSString *)lang{
+#pragma mark - Set language
+- (void)setLanguage:(NSString *)lang withNotify:(BOOL)yesOrNo{
     
     NSString *path = [[NSBundle mainBundle] pathForResource:lang ofType:@"lproj"];
+    
+    NSString *oldLang = [self getCurrentLanguage];
     
     //if no match bundle use default language otherwise use custom set
     if(path == nil){
@@ -96,32 +107,34 @@ static NSBundle *_currentBundle;
     
     //save setting
     [self saveSettingFile];
+    
+
+    if(!yesOrNo)
+        return;
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    [dic setValue:[self getCurrentLanguage] forKey:RTNewLanguage];
+    [dic setValue:oldLang forKey:RTOldLanguage];
+    
+    //post notification about language changed
+    [[NSNotificationCenter defaultCenter] postNotificationName:RTOnLanguageChanged object:nil userInfo:dic];
 
 }
 
+#pragma mark - Get current language
 - (NSString *)getCurrentLanguage{
-    
-    /*
-    NSArray *languages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
-    
-    for(int i=0; i<languages.count; i++){
-        
-        NSLog(@"%@", [languages objectAtIndex:i]);
-    }
-    
-    NSString *preferLanguage = [languages objectAtIndex:0];
-    
-    return preferLanguage;
-     */
     
     return [_setting objectForKey:@"language"];
 }
 
+#pragma mark - Reset system
 - (void)resetSystem{
     
     _currentBundle = [NSBundle mainBundle];
 }
 
+#pragma mark - Internal use
 - (NSString *)getSettingFilePath{
     
     NSString *settingPlistPath = [[self getDocumentsDirectory] stringByAppendingPathComponent:[_rtSettingFileName stringByAppendingString:@".plist"]];
