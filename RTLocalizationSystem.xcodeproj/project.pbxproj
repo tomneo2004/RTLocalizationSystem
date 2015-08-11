@@ -15,7 +15,8 @@
 		44A3C0981B78597500F600BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A3C0961B78597500F600BD /* LaunchScreen.xib */; };
 		44A3C0A41B78597500F600BD /* RTLocalizationSystemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3C0A31B78597500F600BD /* RTLocalizationSystemTests.m */; };
 		44A3C0AF1B785A5200F600BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44A3C0B11B785A5200F600BD /* Localizable.strings */; };
-		44A3C0BA1B785D5600F600BD /* RTLocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3C0B91B785D5600F600BD /* RTLocalizationSystem.m */; };
+		44A3C0BF1B79C64C00F600BD /* RTLocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3C0BE1B79C64C00F600BD /* RTLocalizationSystem.m */; };
+		44A3C0C11B79C66F00F600BD /* RTLocalizationSystemSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44A3C0C01B79C66F00F600BD /* RTLocalizationSystemSetting.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +45,9 @@
 		44A3C0A31B78597500F600BD /* RTLocalizationSystemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTLocalizationSystemTests.m; sourceTree = "<group>"; };
 		44A3C0B21B785A5800F600BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		44A3C0B31B785BA400F600BD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		44A3C0B81B785D5600F600BD /* RTLocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLocalizationSystem.h; sourceTree = "<group>"; };
-		44A3C0B91B785D5600F600BD /* RTLocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLocalizationSystem.m; sourceTree = "<group>"; };
+		44A3C0BD1B79C64C00F600BD /* RTLocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTLocalizationSystem.h; path = RTLocalizationSystem/RTLocalizationSystem.h; sourceTree = "<group>"; };
+		44A3C0BE1B79C64C00F600BD /* RTLocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTLocalizationSystem.m; path = RTLocalizationSystem/RTLocalizationSystem.m; sourceTree = "<group>"; };
+		44A3C0C01B79C66F00F600BD /* RTLocalizationSystemSetting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RTLocalizationSystemSetting.plist; path = RTLocalizationSystem/RTLocalizationSystemSetting.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +132,9 @@
 		44A3C0B41B785C4400F600BD /* RTLocalizationSystem */ = {
 			isa = PBXGroup;
 			children = (
-				44A3C0B81B785D5600F600BD /* RTLocalizationSystem.h */,
-				44A3C0B91B785D5600F600BD /* RTLocalizationSystem.m */,
+				44A3C0BD1B79C64C00F600BD /* RTLocalizationSystem.h */,
+				44A3C0BE1B79C64C00F600BD /* RTLocalizationSystem.m */,
+				44A3C0C01B79C66F00F600BD /* RTLocalizationSystemSetting.plist */,
 			);
 			name = RTLocalizationSystem;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A3C0C11B79C66F00F600BD /* RTLocalizationSystemSetting.plist in Resources */,
 				44A3C0931B78597500F600BD /* Main.storyboard in Resources */,
 				44A3C0AF1B785A5200F600BD /* Localizable.strings in Resources */,
 				44A3C0981B78597500F600BD /* LaunchScreen.xib in Resources */,
@@ -239,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A3C0901B78597500F600BD /* ViewController.m in Sources */,
-				44A3C0BA1B785D5600F600BD /* RTLocalizationSystem.m in Sources */,
+				44A3C0BF1B79C64C00F600BD /* RTLocalizationSystem.m in Sources */,
 				44A3C08D1B78597500F600BD /* AppDelegate.m in Sources */,
 				44A3C08A1B78597500F600BD /* main.m in Sources */,
 			);
@@ -447,6 +451,7 @@
 				44A3C0A91B78597500F600BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44A3C0AA1B78597500F600BD /* Build configuration list for PBXNativeTarget "RTLocalizationSystemTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +460,7 @@
 				44A3C0AC1B78597500F600BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
