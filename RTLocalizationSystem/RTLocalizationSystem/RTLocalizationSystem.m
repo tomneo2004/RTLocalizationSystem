@@ -132,6 +132,10 @@ static NSBundle *_currentBundle;
 - (void)resetSystem{
     
     _currentBundle = [NSBundle mainBundle];
+    
+    [_setting setValue:[_setting objectForKey:@"default"] forKey:@"language"];
+    
+    [self saveSettingFile];
 }
 
 #pragma mark - Internal use

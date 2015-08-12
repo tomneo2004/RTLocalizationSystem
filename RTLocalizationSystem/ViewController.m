@@ -11,8 +11,9 @@
 
 @interface ViewController ()
 
-- (IBAction)ChangeToEn:(id)sender;
-- (IBAction)ChangeToChT:(id)sender;
+- (IBAction)changeToEn:(id)sender;
+- (IBAction)changeToChT:(id)sender;
+- (void)localizeView;
 
 @end
 
@@ -30,9 +31,9 @@
     
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(OnLanguageChanged:) name:RTOnLanguageChanged object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLanguageChanged:) name:RTOnLanguageChanged object:nil];
     
-    _textLabel.text = RTLocalizeString(@"Hello", @"Hello");
+    [self localizeView];
     
 }
 
@@ -41,22 +42,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)ChangeToEn:(id)sender{
+- (IBAction)changeToEn:(id)sender{
     
     RTSetLanguage(@"en");
     
 }
 
-- (IBAction)ChangeToChT:(id)sender{
+- (IBAction)changeToChT:(id)sender{
     
     RTSetLanguage(@"zh-Hant");
     
 }
 
-- (void)OnLanguageChanged:(NSNotification *)notify{
+- (void)onLanguageChanged:(NSNotification *)notify{
     
-    NSLog(@"NewLang:%@, OldLang:%@", [notify.userInfo valueForKey:RTNewLanguage], [notify.userInfo valueForKey:RTOldLanguage]);
-    
+    [self localizeView];
+}
+
+- (void)localizeView{
+
     _textLabel.text = RTLocalizeString(@"Hello", @"Hello");
 }
 
